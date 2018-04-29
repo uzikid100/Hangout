@@ -1,0 +1,12 @@
+<ion-content class="background" id="login">
+  <div class="loginHeader">
+    <h1 class="appTitle" text-center >{{appTitle}}</h1>
+    <img src="../../assets/imgs/planit.png">
+  </div>
+  <!-- <img class="logoIcon" src="assets/imgs/login/wine-drinks.png"> -->
+  <div class="loginMenu">
+    <button ion-button block color="google" [navPush]="tabsPage">Google+</button>
+    <button ion-button block color="facebook" [navPush]="tabsPage">Facebook</button>
+    <div class="text" [navPush]="signupPage">Don't have an account? <b>Sign Up.</b></div>
+  </div>
+</ion-content>

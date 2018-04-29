@@ -1,0 +1,44 @@
+page-login {
+#login{
+    $margin-top: 80px;
+    $margin-bottom:50px;
+    // background: linear-gradient(to bottom, lightseagreen, darkseagreen);
+    background: linear-gradient(to bottom, color($colors,secondary-dark), darkseagreen);
+    h1{
+        font-size: 60px;
+    }
+    .marginTop{
+        margin-top: 140px;
+    }
+    .loginHeader{
+        margin-top: $margin-top;
+        margin-bottom: $margin-bottom;
+    }
+    .appTitle{
+        margin-top: margin-top;
+        padding: 5px;
+        font-size: 360%;
+        color: darkseagreen;
+        // color: color($colors, primary);
+    }
+    .loginMenu{
+        margin-top: 170px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .headerText{
+        color: color($colors, secondary-dark);
+    }
+    .text{
+        color: aliceblue;
+    }
+}
+img{
+    display: -webkit-flex;
+    margin-left: auto;
+    margin-right: auto;
+    height: 180px;
+    width: 180px;
+    padding: 25px;
+}
+}
