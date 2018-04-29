@@ -1,18 +1,26 @@
-<!--
-  Generated template for the SignupPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>signup</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-
-</ion-content>
+<ion-content class="background" id="login">
+    <div class="loginHeader">
+      <h1 class="appTitle" text-center >{{appTitle}}</h1>
+      <img src="../../assets/imgs/planit.png">
+    </div>
+    <div class="loginMenu">
+      <!-- Card View -->
+      <ion-card text-center>
+        <ion-card-header class="cardTitle">
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list no-line>
+            <ion-item>
+              <ion-input type="text" placeholder="Username"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="text" placeholder="Password"></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+      <!-- End Card View -->
+      <button ion-button block color="secondary" [navPush]="tabsPage">Create Account</button>
+      <div class="text" navPop>Already have an account? <b>Login.</b></div>
+    </div>
+  </ion-content>

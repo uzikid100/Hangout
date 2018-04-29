@@ -9,6 +9,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SignupPage {
 
+  appTitle: string = 'PLANiT';
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

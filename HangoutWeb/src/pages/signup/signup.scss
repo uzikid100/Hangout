@@ -1,3 +1,59 @@
 page-signup {
-
+    #login{
+        $margin-top: 30%;
+        $margin-bottom:50px;
+        // background: linear-gradient(to bottom, lightseagreen, darkseagreen);
+        background: linear-gradient(to bottom, color($colors,secondary), darkseagreen);
+        h1{
+            font-size: 60px;
+        }
+        .marginTop{
+            margin-top: 140px;
+        }
+        .loginHeader{
+            margin-top: $margin-top;
+        }
+        .appTitle{
+            margin-top: margin-top;
+            padding: 5px;
+            font-size: 360%;
+            color: darkseagreen;
+        }
+        .loginMenu{
+            margin-top: 2%;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        .headerText{
+            color: color($colors, secondary-dark);
+        }
+        .text{
+            color: aliceblue;
+        }.cardTitle{
+            size: 100px;
+        }
+    }
+    img{
+        display: -webkit-flex;
+        margin-left: auto;
+        margin-right: auto;
+        height: 180px;
+        width: 180px;
+    }
+    ion-card.card{
+        box-shadow: none;
+        background: rgba(0,0,0,0);
+        // background: darkseagreen;
+        border-radius: 5px;
+        margin: auto;
+        border: 0px;
+        .cardTitle{
+            font-size: 150%;
+        }
+    }
+    .item {
+        margin-bottom: 10px;
+        background: rgba(255,255,255,255);
+        border: medium none;
+    }
 }

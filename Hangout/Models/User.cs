@@ -15,7 +15,9 @@ namespace Hangout.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Description { get; set; }
+        public string Email { get; set; }
         public int Repuation { get; set; }
         public byte[] Avatar { get; set; }
+        public bool IsAuthenticated { get; set; }
     }
 }

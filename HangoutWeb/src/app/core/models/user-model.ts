@@ -6,7 +6,9 @@ export class User {
     public Password: string;
     public FirstName: string;
     public LastName: string;
+    public Email: string;
     public Description: string;
     public Reputation: number;
     public Avatar: any
+    public IsAuthenticated: boolean;
 }

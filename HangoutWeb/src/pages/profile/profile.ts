@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { User } from '../../app/core/models/user-model';
+import { UserProvider } from '../../app/core/services/user.provider';
+import { MockUser } from '../../app/core/mocks/mock-user';
 
 @IonicPage()
 @Component({
@@ -10,10 +12,10 @@ import { User } from '../../app/core/models/user-model';
 export class ProfilePage {
 
   pageTitle: string;
-  user: User;
+  user: User = MockUser;
 
-  constructor(private navCtrl: NavController, private navParams: NavParams) {
-    // this.user = this.navParams.get...
+  constructor(private navCtrl: NavController, private navParams: NavParams,
+    private userService: UserProvider) {
   }
 
   ionViewDidLoad() {
