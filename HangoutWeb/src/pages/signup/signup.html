@@ -11,16 +11,16 @@
         <ion-card-content>
           <ion-list no-line>
             <ion-item>
-              <ion-input type="text" placeholder="Username"></ion-input>
+              <ion-input [(ngModel)]="username" type="text" placeholder="Username" name="username"></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input type="text" placeholder="Password"></ion-input>
+              <ion-input [(ngModel)]="password" type="text" placeholder="Password" name="password"></ion-input>
             </ion-item>
           </ion-list>
         </ion-card-content>
       </ion-card>
       <!-- End Card View -->
-      <button ion-button block color="secondary" [navPush]="tabsPage">Create Account</button>
+      <button ion-button block color="secondary" (click)="loginUser()">Create Account</button>
       <div class="text" navPop>Already have an account? <b>Login.</b></div>
     </div>
   </ion-content>

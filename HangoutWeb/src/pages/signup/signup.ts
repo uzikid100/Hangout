@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
+import { UserProvider } from '../../app/core/services/user.provider';
+import { TabsPage } from '../tabs/tabs';
 
 
 @IonicPage()
@@ -10,11 +12,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class SignupPage {
 
   appTitle: string = 'PLANiT';
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  username: string = '';
+  password: string = '';
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    private userService: UserProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignupPage');
   }
 
+  loginUser() {
+    if (this.username.length > 0 && this.password.length > 0)
+      this.navCtrl.push(TabsPage);
+  }
 }
