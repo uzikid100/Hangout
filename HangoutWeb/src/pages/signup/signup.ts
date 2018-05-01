@@ -25,11 +25,6 @@ export class SignupPage {
   ionViewDidLoad() {
   }
 
-
-  loginAsNewUser() {
-    // this.navCtrl.push(TabsPage, this.user);
-  }
-
   createNewUser() {
     if (this.username.length > 0 && this.password.length > 0) {
       this.user = MockUser;

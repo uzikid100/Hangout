@@ -1,10 +1,9 @@
 import { User } from "../models/user-model";
 
 export const MockUser: User = {
-    Id: 3,
-    Username: 'TestUser',
-    Password: 'Password',
-    FirstName: 'User39',
-    LastName: 'Last39',
-    Email: 'B.Toone@healthandwealth.com'
+    Username: 'T-Stark900',
+    Password: 'Sti2932',
+    FirstName: 'Tony',
+    LastName: 'Stark',
+    Email: 'TStark@goodwill.com'
 } as User;
