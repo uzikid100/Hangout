@@ -13,10 +13,10 @@ import { ProfilePage } from '../pages/profile/profile';
 import { ConfigProvider } from './core/services/config.provider';
 import { UserProvider } from './core/services/user.provider';
 import { AuthProvider } from './core/services/auth.provider';
-import { HttpModule } from '@angular/http';
 import { PlanPage } from '../pages/plan/plan';
 import { SignupPage } from '../pages/signup/signup';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    HttpModule,
+    CommonModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],

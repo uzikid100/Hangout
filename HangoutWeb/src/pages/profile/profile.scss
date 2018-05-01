@@ -1,7 +1,8 @@
 page-profile {
     .profileHeader{
         // background: cadetblue;
-        background: linear-gradient(to bottom, color($colors,secondary-light), darkseagreen);
+        background: linear-gradient(to bottom, lightseagreen, darkseagreen);
+        // background: linear-gradient(to bottom, color($colors,secondary-light), darkseagreen);
         
         .profileImage{
             display: -webkit-flex;

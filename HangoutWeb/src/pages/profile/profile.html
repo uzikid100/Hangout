@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar color="primary">
     <ion-title>
-      {{pageTitle}}
+      {{user.username}}
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -9,9 +9,8 @@
 
 <ion-content>
   <div class="profileHeader">
-    <h2 class="text" text-center>{{user.Username}}</h2>
     <img class="profileImage" src="../../assets/imgs/avatar1.png">
-    <button class="button" ion-button>Follow</button>
+    <!-- <button class="button" ion-button>Follow</button> -->
     <div>
       <ion-grid margin-top="20px" margin-bottom="20px">
         <ion-row class="info">
