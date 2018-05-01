@@ -8,7 +8,7 @@ namespace Hangout.RequestHandlers.Interfaces
 {
     public interface IUserRequestHandler
     {
-        User GetUserAsync(string username);
+        Task<User> GetUserAsync(int id);
         Task<User> AddUserAsync(User user);
     }
 }

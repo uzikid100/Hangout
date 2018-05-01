@@ -20,9 +20,9 @@ namespace Hangout.Repository
 
         public IUnitOfWork UnitOfWork => _context;
 
-        public User GetUserAsync(string username)
-        {
-            return _context.Users.SingleOrDefault(user => user.Username == username);
+        public async Task<User> GetUserAsync(int id)
+        { 
+            return await _context.Users.FindAsync(id);
         }
 
         public async Task<User> AddUserAsync(User user)

@@ -12,7 +12,6 @@ export class UserProvider {
     private controllerName: string = 'Users/';
     private controllerUrl: string;
 
-    user: User;
     constructor(private http: HttpClient, private configService: ConfigProvider) {
         this.controllerUrl = this.configService.fullApiUrl + this.controllerName;
     }
@@ -21,8 +20,7 @@ export class UserProvider {
         return this.http.post<User>(this.controllerUrl, user);
     }
 
-    getUser(userName: string): Observable<any> {
-        return this.http.get<User>(this.controllerUrl + userName);
-        // .map((res) => this.user = res);
+    getUser(id: number): Observable<any> {
+        return this.http.get<User>(this.controllerUrl + id);
     }
 }

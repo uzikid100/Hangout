@@ -17,14 +17,15 @@ namespace Hangout.RequestHandlers
             _userRepo = userRepo;
         }
 
-        public User GetUserAsync(string username)
+        public async Task<User> GetUserAsync(int id)
         {
-            return _userRepo.GetUserAsync(username);
+            return await _userRepo.GetUserAsync(id);
         }
 
         public async Task<User> AddUserAsync(User user)
         {
             var result = await _userRepo.AddUserAsync(user);
+            await _userRepo.UnitOfWork.SaveChangesAsync();
             return result;
         }
 

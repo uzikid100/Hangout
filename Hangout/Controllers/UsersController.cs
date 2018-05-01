@@ -20,10 +20,10 @@ namespace Hangout.Controllers
             _userRequestHandler = userRequestHandler;
         }
 
-        [HttpGet("{username}")]
-        public User GetUser(string username)
+        [HttpGet("{id}")]
+        public async Task<User> GetUser(int id)
         {
-            return _userRequestHandler.GetUserAsync(username);
+            return await _userRequestHandler.GetUserAsync(id);
         }
 
         [HttpPost]

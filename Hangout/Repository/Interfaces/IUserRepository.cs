@@ -9,7 +9,7 @@ namespace Hangout.Repository.Interfaces
 {
     public interface IUserRepository: IRepository<User>
     {
-        User GetUserAsync(string username);
+        Task<User> GetUserAsync(int id);
         Task<User> AddUserAsync(User user);
     }
 }

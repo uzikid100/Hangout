@@ -12,7 +12,7 @@ import { MockUser } from '../../app/core/mocks/mock-user';
 export class ProfilePage {
 
   pageTitle: string;
-  user: User = new User();
+  user: User = MockUser;
 
   constructor(private navCtrl: NavController, private navParams: NavParams,
     private userService: UserProvider, private ref: ChangeDetectorRef) {
@@ -27,7 +27,7 @@ export class ProfilePage {
   ionViewDidLoad() {
     console.log('ViewDidLoad');
     console.log(this.user);
-    this.userService.getUser('kdub911').subscribe(user => {
+    this.userService.getUser(1).subscribe(user => {
       this.user = user;
       console.log(this.user);
     })
