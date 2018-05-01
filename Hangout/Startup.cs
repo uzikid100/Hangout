@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Hangout.Database;
+using Hangout.Repository;
+using Hangout.Repository.Interfaces;
+using Hangout.RequestHandlers;
+using Hangout.RequestHandlers.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -25,9 +29,20 @@ namespace Hangout
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
             services.AddMvc();
-            ConfigureDatabase(services);
 
+            ConfigureDatabase(services);
+            ConfigureDependencyInjection(services);
+        }
+
+        private void ConfigureDependencyInjection(IServiceCollection services)
+        {
+            // Handlers Config
+            services.AddTransient<IUserRequestHandler, UserRequestHandler>();
+            
+            // Repo Config
+            services.AddScoped<IUserRepository, UserEFRepository>();
         }
 
         private void ConfigureDatabase(IServiceCollection services)
@@ -46,6 +61,11 @@ namespace Hangout
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(builder => builder
+                .AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod());
 
             app.UseMvc();
         }

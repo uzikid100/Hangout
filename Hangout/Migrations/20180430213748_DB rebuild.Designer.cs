@@ -11,9 +11,10 @@ using System;
 namespace Hangout.Migrations
 {
     [DbContext(typeof(HangoutContext))]
-    partial class HangoutContextModelSnapshot : ModelSnapshot
+    [Migration("20180430213748_DB rebuild")]
+    partial class DBrebuild
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

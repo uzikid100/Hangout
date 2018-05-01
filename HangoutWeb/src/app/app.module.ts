@@ -16,6 +16,7 @@ import { AuthProvider } from './core/services/auth.provider';
 import { HttpModule } from '@angular/http';
 import { PlanPage } from '../pages/plan/plan';
 import { SignupPage } from '../pages/signup/signup';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { SignupPage } from '../pages/signup/signup';
   imports: [
     BrowserModule,
     HttpModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],

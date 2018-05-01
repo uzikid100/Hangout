@@ -12,10 +12,10 @@ namespace Hangout.Models
         [Required]
         public string Title { get; set; }
         public string Desription { get; set; }
-        public DateTime ScheduledTime { get; set; }
-        public int Capacity { get; set; }
-        public double Price { get; set; }
-        public int Attending { get; set; }
+        public DateTime? ScheduledTime { get; set; }
+        public int? Capacity { get; set; }
+        public double? Price { get; set; }
+        public int? Attending { get; set; }
         public string Location { get; set; }
 
         // Must provide Foriegn key for 'author' property

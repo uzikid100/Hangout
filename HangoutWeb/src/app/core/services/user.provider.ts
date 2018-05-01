@@ -1,9 +1,10 @@
 import { Component, Injectable } from "@angular/core";
-import { Http, HttpModule } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { ConfigProvider } from './config.provider';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/Observable/of';
 import { User } from '../models/user-model';
+import 'rxjs';
 
 @Injectable()
 export class UserProvider {
@@ -12,15 +13,16 @@ export class UserProvider {
     private controllerUrl: string;
 
     user: User;
-    constructor(private http: Http, private configService: ConfigProvider) {
+    constructor(private http: HttpClient, private configService: ConfigProvider) {
         this.controllerUrl = this.configService.fullApiUrl + this.controllerName;
     }
 
     addNewUser(user: User): Observable<any> {
-        return this.http.post(this.controllerUrl, user);
+        return this.http.post<User>(this.controllerUrl, user);
     }
 
     getUser(userName: string): Observable<any> {
-        return this.http.get(this.controllerUrl + userName);
+        return this.http.get<User>(this.controllerUrl + userName);
+        // .map((res) => this.user = res);
     }
 }
