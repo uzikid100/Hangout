@@ -3,7 +3,7 @@ page-login {
     $margin-top: 30%;
     $margin-bottom:50px;
     // background: linear-gradient(to bottom, lightseagreen, darkseagreen);
-    background: linear-gradient(to bottom, color($colors,secondary), darkseagreen);
+    background: linear-gradient(to bottom, color($colors,primary), darkseagreen);
     h1{
         font-size: 60px;
     }
@@ -12,7 +12,6 @@ page-login {
     }
     .loginHeader{
         margin-top: $margin-top;
-        margin-bottom: $margin-bottom;
     }
     .appTitle{
         margin-top: margin-top;
@@ -21,7 +20,7 @@ page-login {
         color: darkseagreen;
     }
     .loginMenu{
-        margin-top: 70px;
+        margin-top: 2%;
         padding-left: 15px;
         padding-right: 15px;
     }
@@ -39,11 +38,19 @@ img{
     height: 180px;
     width: 180px;
 }
-// .scroll-content{
-//     align-content: center;
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     text-align: center;
-// }
+ion-card.card{
+    box-shadow: none;
+    background: rgba(0,0,0,0);
+    border-radius: 5px;
+    margin: auto;
+    border: 0px;
+    .cardTitle{
+        font-size: 150%;
+    }
+}
+.item {
+    margin-bottom: 10px;
+    background: rgba(255,255,255,255);
+    border: medium none;
+}
 }

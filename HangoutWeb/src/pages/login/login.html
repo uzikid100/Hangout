@@ -3,10 +3,33 @@
     <h1 class="appTitle" text-center >{{appTitle}}</h1>
     <img src="../../assets/imgs/planit.png">
   </div>
-  <div class="loginMenu">
+  <!-- <div class="loginMenu">
     <button ion-button block color="google" [navPush]="tabsPage">Google+</button>
     <button ion-button block color="facebook" [navPush]="tabsPage">Facebook</button>
     <div class="text" [navPush]="signupPage">Don't have an account? <b>Sign Up.</b></div>
-  </div>
+  </div> -->
+
+      <!-- Menu -->
+      <div class="loginMenu">
+          <!-- Card View -->
+        <ion-card text-center>
+          <ion-card-header class="cardTitle">
+          </ion-card-header>
+          <ion-card-content>
+            <ion-list no-line>
+              <ion-item>
+                <ion-input [(ngModel)]="username" type="text" placeholder="Username" name="username"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input [(ngModel)]="password" type="text" placeholder="Password" name="password"></ion-input>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+        <!-- End Card View -->
+        <button ion-button block color=secondary [navPush]="tabsPage">Login</button>
+        <!-- End Menu -->
+        <div class="text" [navPush]="signupPage">Don't have an account? <b>Sign Up.</b></div>
+      </div>
 </ion-content>
 

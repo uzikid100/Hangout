@@ -17,10 +17,7 @@ export class TabsPage {
     tab2Root = ProfilePage;
     tab3Root = PlanPage;
 
-    constructor(private navCtrl: NavController) { }
-
-    // ionViewDidEnter() {
-    //     this.tabs.select(2);
-    // }
+    constructor(private navCtrl: NavController) {
+    }
 
 }

@@ -20,7 +20,7 @@ export class UserProvider {
         return this.http.post<User>(this.controllerUrl, user);
     }
 
-    getUser(id: number): Observable<any> {
+    getUser(id: number): Observable<User> {
         return this.http.get<User>(this.controllerUrl + id);
     }
 }
