@@ -17,6 +17,7 @@ import { PlanPage } from '../pages/plan/plan';
 import { SignupPage } from '../pages/signup/signup';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { FriendsPage } from '../pages/friends/friends';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { CommonModule } from '@angular/common';
     ProfilePage,
     PlanPage,
     SignupPage,
+    FriendsPage,
     TabsPage
   ],
   imports: [
@@ -42,6 +44,7 @@ import { CommonModule } from '@angular/common';
     ProfilePage,
     PlanPage,
     SignupPage,
+    FriendsPage,
     TabsPage
   ],
   providers: [

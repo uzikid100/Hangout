@@ -30,5 +30,11 @@ namespace Hangout.Repository
             var result = await _context.Users.AddAsync(user);
             return result.Entity;
         }
+
+        public List<User> GetUsers()
+        {
+            return _context.Users.ToList();
+        }
     }
+
 }

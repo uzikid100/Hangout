@@ -29,5 +29,10 @@ namespace Hangout.RequestHandlers
             return result;
         }
 
+        public List<User> GetUsers()
+        {
+            return _userRepo.GetUsers();
+        }
+
     }
 }

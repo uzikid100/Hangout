@@ -31,5 +31,11 @@ namespace Hangout.Controllers
         {
             return await _userRequestHandler.AddUserAsync(user);
         }
+
+        [HttpGet]
+        public List<User> GetUsers()
+        {
+            return _userRequestHandler.GetUsers();
+        }
     }
 }
