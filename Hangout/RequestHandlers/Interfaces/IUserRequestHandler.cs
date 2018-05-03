@@ -10,5 +10,6 @@ namespace Hangout.RequestHandlers.Interfaces
     {
         Task<User> GetUserAsync(int id);
         Task<User> AddUserAsync(User user);
+        List<User> GetUsers();
     }
 }

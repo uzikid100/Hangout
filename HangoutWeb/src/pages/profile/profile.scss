@@ -1,9 +1,9 @@
 page-profile {
     .profileHeader{
-        // background: cadetblue;
-        background: linear-gradient(to bottom, lightseagreen, darkseagreen);
-        // background: linear-gradient(to bottom, color($colors,secondary-light), darkseagreen);
-        
+        // background: linear-gradient(to bottom, lightseagreen, darkseagreen);
+        background: linear-gradient(to bottom, color($colors, primary-light), darkseagreen);
+        margin: 2%;
+        border-radius: 1%;
         .profileImage{
             display: -webkit-flex;
             height: 50%;
@@ -11,30 +11,39 @@ page-profile {
             padding-top: 2%;
             padding-bottom: 2%;
             margin-left: 25%;
+        }.text{
+            margin: 0px;
+            padding: 2%;
+            color: color($colors, light);
+            border: 0%;
+            width: 100%;
+            height: 50%;
+        }.button{
+            display: -webkit-flex;
+            margin: auto; 
+            margin-top: 2%;
+            margin-bottom: 2%;
+        }.info{
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            justify-content: right;
+            color: color($colors, light);
+            font-size: large;
+            .info-large-text{
+                font-size: 125%;
+                font-weight: bold;
+            }
+        }.border{
+            border-left: 2px solid color($colors, light);
         }
-    }.text{
-        margin: 0px;
-        padding: 2%;
-        color: color($colors, light);
-        border: 0%;
-        width: 100%;
-        height: 50%;
-    }.button{
-        display: -webkit-flex;
-        margin: auto; 
-        margin-top: 2%;
-        margin-bottom: 2%;
-    }.info{
-        font-family: Arial, Helvetica, sans-serif;
-        text-align: center;
-        justify-content: right;
-        color: color($colors, light);
-        font-size: large;
-        .info-large-text{
-            font-size: 125%;
-            font-weight: bold;
-        }
-    }.border{
-        border-left: 2px solid color($colors, light);
+    }.page-background{
+        background: color($colors, primary);
+    }
+    .list{
+        margin: 2%;
+        border-radius: 25px;
+        background: rgba(0,0,0,0);
+        box-shadow: none;
     }
 }
+

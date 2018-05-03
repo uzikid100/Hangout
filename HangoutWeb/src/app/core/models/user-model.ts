@@ -11,4 +11,10 @@ export class User {
     public Reputation: number;
     public Avatar: any
     public IsAuthenticated: boolean;
+
+    json(json: any): User {
+        let user = Object.create(User.prototype);
+        Object.assign(user, json);
+        return user;
+    }
 }

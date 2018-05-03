@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>{{pageTitle}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <div *ngIf="users">
+    <div *ngFor="let user of users">
+      {{user.username}}
+    </div>
+  </div>
+</ion-content>

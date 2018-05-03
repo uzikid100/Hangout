@@ -27,8 +27,8 @@ export class ProfilePage {
   ionViewDidLoad() {
     console.log('ViewDidLoad');
     console.log(this.user);
-    this.userService.getUser(1).subscribe(user => {
-      this.user = user;
+    this.userService.getUser(2).subscribe(user => {
+      this.user = user as User;
       console.log(this.user);
     })
   }

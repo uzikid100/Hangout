@@ -13,7 +13,7 @@ export class PlanPage {
   }
 
   ionViewDidLoad() {
-    this.pageTitle = "Plans";
+    this.pageTitle = "Planner";
   }
 
 }
