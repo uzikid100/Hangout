@@ -25,4 +25,9 @@ export class UserProvider {
     getUser(id: number): Observable<User> {
         return this.http.get<User>(this.controllerUrl + id);
     }
+
+    getUsers(): Observable<User[]> {
+        return this.http.get<User[]>(this.controllerUrl);
+    }
+
 }

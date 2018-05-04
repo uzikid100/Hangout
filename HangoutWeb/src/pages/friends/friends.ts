@@ -13,10 +13,17 @@ export class FriendsPage {
   pageTitle = "Friends";
   users: User[];
   constructor(public navCtrl: NavController, public navParams: NavParams,
-  private userService: UserProvider) {
+    private userService: UserProvider) {
   }
 
-  ionViewDidLoad() {
+  ionViewDidLoad() { // Only called first time page is rendered
+    this.getUsers();
   }
+
+  getUsers(): void {
+    this.userService.getUsers().subscribe(users =>
+      this.users = users)
+  }
+
 
 }
