@@ -1,20 +1,26 @@
 import { Component } from "@angular/core";
 
 export class User {
-    public Id: number;
-    public Username: string;
-    public Password: string;
-    public FirstName: string;
-    public LastName: string;
-    public Email: string;
-    public Description: string;
-    public Reputation: number;
-    public Avatar: any
-    public IsAuthenticated: boolean;
+    public id: number;
+    public username: string;
+    public password: string;
+    public firstName: string;
+    public lastName: string;
+    public email: string;
+    public description: string;
+    public reputation: number;
+    public avatar: any
+    public isAuthenticated: boolean;
 
-    json(json: any): User {
-        let user = Object.create(User.prototype);
-        Object.assign(user, json);
-        return user;
-    }
+    // constructor(jsonObj = {} as User) {
+    //     const val = Object.getPrototypeOf(this);
+    //     Object.assign(val, jsonObj);
+    //     console.log('Component obj');
+    //     console.log(this);
+    // }
+    // json(json: any): User {
+    //     let user = Object.create(User.prototype);
+    //     Object.assign(user, json);
+    //     return user;
+    // }
 }

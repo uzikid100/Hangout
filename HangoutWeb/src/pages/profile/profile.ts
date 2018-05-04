@@ -18,13 +18,13 @@ export class ProfilePage {
     private userService: UserProvider, private ref: ChangeDetectorRef) {
   }
 
-  ionViewWillEnter() {
+  ionViewWillEnter() {// Called every time cached page is loaded
     console.log('ViewWilEnter!');
     this.pageTitle = 'Profile';
     console.log(this.user);
   }
 
-  ionViewDidLoad() {
+  ionViewDidLoad() { // Only called first time page is rendered
     console.log('ViewDidLoad');
     console.log(this.user);
     this.userService.getUser(2).subscribe(user => {

@@ -12,6 +12,8 @@ export class UserProvider {
     private controllerName: string = 'Users/';
     private controllerUrl: string;
 
+    loggedInUser: User;
+
     constructor(private http: HttpClient, private configService: ConfigProvider) {
         this.controllerUrl = this.configService.fullApiUrl + this.controllerName;
     }
