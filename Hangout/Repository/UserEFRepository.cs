@@ -35,6 +35,12 @@ namespace Hangout.Repository
         {
             return _context.Users.ToList();
         }
+
+        public User GetLastLoggedInUser()
+        {
+            var val = _context.Users.Count();
+            return _context.Users.Find(val - 1);
+        }
     }
 
 }

@@ -37,5 +37,11 @@ namespace Hangout.Controllers
         {
             return _userRequestHandler.GetUsers();
         }
+
+        //[HttpGet]
+        //public User GetLastLoggedInUser()
+        //{
+            
+        //}
     }
 }

@@ -27,7 +27,11 @@ export class SignupPage {
 
   createNewUser() {
     if (this.username.length > 0 && this.password.length > 0) {
-      this.user = MockUser;
+      // this.user = MockUser;
+      this.user = {
+        username: this.username,
+        password: this.password,
+      } as User;
 
       this.userService.addNewUser(this.user).subscribe(result => {
         console.log('Result: ' + result);

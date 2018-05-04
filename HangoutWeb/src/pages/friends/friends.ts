@@ -12,6 +12,8 @@ export class FriendsPage {
 
   pageTitle = "Friends";
   users: User[];
+  isFollowing: false;
+
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private userService: UserProvider) {
   }

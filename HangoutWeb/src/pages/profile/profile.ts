@@ -27,10 +27,10 @@ export class ProfilePage {
   ionViewDidLoad() { // Only called first time page is rendered
     console.log('ViewDidLoad');
     console.log(this.user);
-    this.userService.getUser(2).subscribe(user => {
-      this.user = user as User;
-      console.log(this.user);
-    })
+    this.getLoggedInUser();
   }
 
+  getLoggedInUser(): void {
+    this.userService.getLoggedInUser.subscribe(user => this.user = user);
+  }
 }
