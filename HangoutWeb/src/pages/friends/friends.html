@@ -14,7 +14,7 @@
         </ion-avatar>
         <h2>{{user.username}}</h2>
         <p>{{user.firstName}} {{user.lastName}}</p>
-        <button ion-button item-end>Follow</button>
+        <button ion-button item-end (click)="followUser(user)" [ngClass]="{'following': user.following, 'not-following': !user.following}">{{getFollowStatus(user)}}</button>
       </ion-item>
     </ion-list>
 </ion-content>

@@ -12,5 +12,6 @@ namespace Hangout.RequestHandlers.Interfaces
         Task<User> AddUserAsync(User user);
         List<User> GetUsers();
         User GetLastLoggedInUser();
+        IQueryable<User> GetUserByUsername(string username);
     }
 }

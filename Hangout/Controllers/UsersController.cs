@@ -38,6 +38,12 @@ namespace Hangout.Controllers
             return _userRequestHandler.GetUsers();
         }
 
+        [HttpGet("{username}")]
+        public IQueryable<User> GetUserByUsername(string username)
+        {
+            return _userRequestHandler.GetUserByUsername(username);
+        }
+
         //[HttpGet]
         //public User GetLastLoggedInUser()
         //{

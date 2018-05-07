@@ -13,5 +13,8 @@ namespace Hangout.Repository.Interfaces
         Task<User> AddUserAsync(User user);
         List<User> GetUsers();
         User GetLastLoggedInUser();
+        IQueryable<User> AddFriend(int id);
+
+        IQueryable<User> GetUserByUsername(string username);
     }
 }

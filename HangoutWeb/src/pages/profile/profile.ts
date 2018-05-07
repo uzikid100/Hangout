@@ -13,6 +13,7 @@ export class ProfilePage {
 
   pageTitle: string;
   user: User = MockUser;
+  friends: User[] = [];
 
   constructor(private navCtrl: NavController, private navParams: NavParams,
     private userService: UserProvider, private ref: ChangeDetectorRef) {
@@ -21,16 +22,21 @@ export class ProfilePage {
   ionViewWillEnter() {// Called every time cached page is loaded
     console.log('ViewWilEnter!');
     this.pageTitle = 'Profile';
-    console.log(this.user);
+    this.userService.getLoggedInUser.subscribe(user => console.log(user));
   }
 
   ionViewDidLoad() { // Only called first time page is rendered
     console.log('ViewDidLoad');
     console.log(this.user);
     this.getLoggedInUser();
+    this.getFriends();
   }
 
   getLoggedInUser(): void {
     this.userService.getLoggedInUser.subscribe(user => this.user = user);
+  }
+
+  getFriends(): void {
+    this.userService.getUsers().subscribe(users => this.friends = users);
   }
 }

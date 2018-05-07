@@ -1,35 +1,31 @@
 <ion-header>
   <ion-navbar color="primary">
     <ion-title>
-      {{user.username}}
+      @{{user.username}}
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 
-<ion-content class="page-background" color=primary>
+<ion-content class="page-profile page-background" color=primary>
+  <ion-grid>
+    <h3 class="listHeader">Friends</h3>
+    <ion-row style="height: 75px" width="fill">
+      <ion-item color="primary" >
+        <ion-scroll scrollX="true" style="height: 85px; width: auto" class="list">
+          <div class="scroll-item" *ngFor="let friend of friends">
+            <ion-col >
+              <ion-avatar avatar padding-left="auto" padding-right="auto">
+                <img src="../../assets/imgs/avatars/old-man.png" margin-left="auto" margin-right="auto">
+                <label text-center stacked>{{friend.username}}</label>
+              </ion-avatar>
+            </ion-col>
+          </div>          
+        </ion-scroll>
+      </ion-item>
+    </ion-row>
+  </ion-grid>
   <div class="profileHeader">
-    <img class="profileImage" src="../../assets/imgs/avatar1.png">
-    <!-- <ion-icon name="people"></ion-icon> -->
-    <!-- <button class="button" ion-button>Follow</button>  -->
-      <ion-grid margin-top="20px" margin-bottom="20px">
-        <ion-row class="info">
-          <ion-col col-md-6>
-            Followers:
-            <br>
-            <span class="info info-large-text">67</span>
-          </ion-col>
-          <span class="border"></span>
-          <ion-col col-md-6>
-            Repuation:
-            <br>
-            <span class="info info-large-text">Awesome!</span>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+  <img class="profileImage" src="../../assets/imgs/avatar1.png">
   </div>
-  <!-- End Profile Header -->
-
-
-  <!-- Add recents here... -->
 </ion-content>

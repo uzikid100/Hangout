@@ -39,6 +39,10 @@ namespace Hangout.RequestHandlers
             return _userRepo.GetLastLoggedInUser();
         }
 
+        public IQueryable<User> GetUserByUsername(string username)
+        {
+            return _userRepo.GetUserByUsername(username);
+        }
 
     }
 }

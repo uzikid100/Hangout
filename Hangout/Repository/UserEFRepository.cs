@@ -38,8 +38,19 @@ namespace Hangout.Repository
 
         public User GetLastLoggedInUser()
         {
-            var val = _context.Users.Count();
-            return _context.Users.Find(val - 1);
+            throw new NotImplementedException();
+            //var val = _context.Users.Count();
+            //return _context.Users.Find(val - 1);
+        }
+
+        public IQueryable<User> AddFriend(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IQueryable<User> GetUserByUsername(string username)
+        {
+            return _context.Users.Where(user => user.Username == username);
         }
     }
 

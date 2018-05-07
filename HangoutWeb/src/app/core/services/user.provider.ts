@@ -13,7 +13,7 @@ export class UserProvider {
     private controllerName: string = 'Users/';
     private controllerUrl: string;
 
-    loggedInUser: User;
+    private loggedInUser: User;
 
     constructor(private http: HttpClient, private configService: ConfigProvider) {
         this.controllerUrl = this.configService.fullApiUrl + this.controllerName;
@@ -29,21 +29,33 @@ export class UserProvider {
         return this.http.get<User>(this.controllerUrl + id);
     }
 
+    getUserByUsername(username: string): Observable<User> {
+        return this.http.get<User>(this.controllerUrl + username);
+    }
+
     getUsers(): Observable<User[]> {
         return this.http.get<User[]>(this.controllerUrl);
     }
 
     get getLoggedInUser(): Observable<User> {
-        // Ideally would get current user from authService
-        return this.http.get<User>(this.controllerUrl + 1);
-        // if (this.loggedInUser == null) {
-        //     return MockUser;
-        // }
-        // return this.loggedInUser;
+        if (this.loggedInUser)
+            return of(this.loggedInUser);
+        return this.http.get<User>(this.controllerName + 1);
     }
 
-    logIn(id: number) {
+    logIn(username: string): Observable<User> {
+        const result = this.getUserByUsername(username);
+        if (result !== null) {
+            result.subscribe(user => {
+                console.log(user);
+                return this.loggedInUser = user;
+            })
+        }
+        else return null;
+    }
 
+    updateFriendsList(users: User[]): void {
+        this.http.put(this.controllerUrl, users);
     }
 
 }

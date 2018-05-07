@@ -23,6 +23,9 @@ export class LoginPage {
   appTitle: string = 'PLANiT';
   private user: User;
 
+  username: string = '';
+  password: string = '';
+
   constructor(private navCtrl: NavController, private navParams: NavParams,
     private userService: UserProvider) {
   }
@@ -31,6 +34,12 @@ export class LoginPage {
   }
 
   tryLogin() {
+    if (this.username.length > 0 && this.password.length > 0) {
+      this.userService.logIn(this.username).subscribe(user => {
+        this.navCtrl.push('TabsPage');
+      })
+    }
+
   }
 
 }
