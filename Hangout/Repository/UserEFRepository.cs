@@ -48,9 +48,10 @@ namespace Hangout.Repository
             throw new NotImplementedException();
         }
 
-        public IQueryable<User> GetUserByUsername(string username)
+        public User GetUserByUsername(string username)
         {
-            return _context.Users.Where(user => user.Username == username);
+            return _context.Users.SingleOrDefault<User>(user => user.Username == username);
+
         }
     }
 

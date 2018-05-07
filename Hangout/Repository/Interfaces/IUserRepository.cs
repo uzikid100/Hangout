@@ -14,7 +14,6 @@ namespace Hangout.Repository.Interfaces
         List<User> GetUsers();
         User GetLastLoggedInUser();
         IQueryable<User> AddFriend(int id);
-
-        IQueryable<User> GetUserByUsername(string username);
+        User GetUserByUsername(string username);
     }
 }

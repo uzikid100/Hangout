@@ -9,15 +9,16 @@
 
 <ion-content class="page-profile page-background" color=primary>
   <ion-grid>
-    <h3 class="listHeader">Friends</h3>
+    <!-- <h3 class="listHeader">Friends</h3> -->
     <ion-row style="height: 75px" width="fill">
-      <ion-item color="primary" >
-        <ion-scroll scrollX="true" style="height: 85px; width: auto" class="list">
+      <ion-item class="item" color="primary" no-lines>
+        <ion-scroll scrollX="true" style="height: 100px; width: auto">
           <div class="scroll-item" *ngFor="let friend of friends">
             <ion-col >
-              <ion-avatar avatar padding-left="auto" padding-right="auto">
-                <img src="../../assets/imgs/avatars/old-man.png" margin-left="auto" margin-right="auto">
-                <label text-center stacked>{{friend.username}}</label>
+              <ion-avatar avatar padding-left="2px" padding-right="2px">
+                <img class="avatar-image" src="../../assets/imgs/avatars/old-man.png">
+                <!-- <img class="avatar-image" src="../../assets/imgs/avatars/old-man.png"  margin-left="auto" margin-right="auto"> -->
+                <label text-center stacked class=label>{{friend.username}}</label>
               </ion-avatar>
             </ion-col>
           </div>          

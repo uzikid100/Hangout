@@ -22,13 +22,13 @@ export class ProfilePage {
   ionViewWillEnter() {// Called every time cached page is loaded
     console.log('ViewWilEnter!');
     this.pageTitle = 'Profile';
-    this.userService.getLoggedInUser.subscribe(user => console.log(user));
+    this.getLoggedInUser();
+    console.log(this.user);
   }
 
   ionViewDidLoad() { // Only called first time page is rendered
     console.log('ViewDidLoad');
     console.log(this.user);
-    this.getLoggedInUser();
     this.getFriends();
   }
 

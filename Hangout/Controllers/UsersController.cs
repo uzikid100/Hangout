@@ -20,11 +20,11 @@ namespace Hangout.Controllers
             _userRequestHandler = userRequestHandler;
         }
 
-        [HttpGet("{id}")]
-        public async Task<User> GetUser(int id)
-        {
-            return await _userRequestHandler.GetUserAsync(id);
-        }
+        //[HttpGet("{id}")]
+        //public async Task<User> GetUser(int id)
+        //{
+        //    return await _userRequestHandler.GetUserAsync(id);
+        //}
 
         [HttpPost]
         public async Task<User> AddNewUser([FromBody] User user)
@@ -39,15 +39,11 @@ namespace Hangout.Controllers
         }
 
         [HttpGet("{username}")]
-        public IQueryable<User> GetUserByUsername(string username)
+        public User GetUserByUsername(string username)
         {
+
             return _userRequestHandler.GetUserByUsername(username);
         }
 
-        //[HttpGet]
-        //public User GetLastLoggedInUser()
-        //{
-            
-        //}
     }
 }

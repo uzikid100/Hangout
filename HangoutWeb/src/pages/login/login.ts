@@ -36,8 +36,9 @@ export class LoginPage {
   tryLogin() {
     if (this.username.length > 0 && this.password.length > 0) {
       this.userService.logIn(this.username).subscribe(user => {
-        this.navCtrl.push('TabsPage');
-      })
+        console.log(user);
+        this.navCtrl.push(TabsPage);
+      });
     }
 
   }

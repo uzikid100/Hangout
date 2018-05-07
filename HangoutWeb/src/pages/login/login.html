@@ -21,7 +21,7 @@
           </ion-card-content>
         </ion-card>
         <!-- End Card View -->
-        <button ion-button block color=secondary [navPush]="tabsPage" >Login</button>
+        <button ion-button block color="secondary" (click)="tryLogin()">Login</button>
         <!-- End Menu -->
         <div class="text" [navPush]="signupPage">Don't have an account? <b>Sign Up.</b></div>
       </div>

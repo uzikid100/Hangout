@@ -40,18 +40,18 @@ export class UserProvider {
     get getLoggedInUser(): Observable<User> {
         if (this.loggedInUser)
             return of(this.loggedInUser);
-        return this.http.get<User>(this.controllerName + 1);
+        return this.http.get<User>(this.controllerUrl + 1);
     }
 
     logIn(username: string): Observable<User> {
-        const result = this.getUserByUsername(username);
-        if (result !== null) {
-            result.subscribe(user => {
-                console.log(user);
-                return this.loggedInUser = user;
-            })
-        }
-        else return null;
+        return this.http.get<User>(this.controllerUrl + username).map(user => {
+            if (user === null)
+                user = MockUser;
+            else {
+                this.loggedInUser = user;
+                return this.loggedInUser;
+            }
+        })
     }
 
     updateFriendsList(users: User[]): void {
