@@ -51,12 +51,14 @@ namespace Hangout.Migrations
 
             modelBuilder.Entity("Hangout.Models.Friend", b =>
                 {
-                    b.Property<int>("FriendId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("UserId");
 
-                    b.HasKey("FriendId");
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Friends");
                 });
@@ -67,7 +69,8 @@ namespace Hangout.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<byte[]>("Avatar");
+                    b.Property<string>("Avatar")
+                        .HasColumnType("VARCHAR(255)");
 
                     b.Property<string>("Description");
 
@@ -98,6 +101,14 @@ namespace Hangout.Migrations
                 {
                     b.HasOne("Hangout.Models.User", "User")
                         .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Hangout.Models.Friend", b =>
+                {
+                    b.HasOne("Hangout.Models.User", "User")
+                        .WithMany("Friends")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

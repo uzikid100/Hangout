@@ -17,9 +17,9 @@ namespace Hangout.RequestHandlers
             _userRepo = userRepo;
         }
 
-        public async Task<User> GetUserAsync(int id)
+        public Task<User> GetUserAsync(int id)
         {
-            return await _userRepo.GetUserAsync(id);
+            return _userRepo.GetUserWithFriends(id);
         }
 
         public async Task<User> AddUserAsync(User user)
@@ -32,11 +32,6 @@ namespace Hangout.RequestHandlers
         public List<User> GetUsers()
         {
             return _userRepo.GetUsers();
-        }
-
-        public User GetLastLoggedInUser()
-        {
-            return _userRepo.GetLastLoggedInUser();
         }
 
         public User GetUserByUsername(string username)

@@ -36,11 +36,16 @@ export class LoginPage {
   tryLogin() {
     if (this.username.length > 0 && this.password.length > 0) {
       this.userService.logIn(this.username).subscribe(user => {
-        console.log(user);
-        this.navCtrl.push(TabsPage);
+        if (user) {
+          this.navCtrl.push(TabsPage);
+        }
       });
     }
 
+  }
+
+  addFriendTest() {
+    this.userService.addFriend(1, 5002);
   }
 
 }

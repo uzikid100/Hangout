@@ -40,9 +40,11 @@ namespace Hangout
         {
             // Handlers Config
             services.AddTransient<IUserRequestHandler, UserRequestHandler>();
+            services.AddTransient<IFriendRequestHandler, FriendRequestHandler>();
             
             // Repo Config
             services.AddScoped<IUserRepository, UserEFRepository>();
+            services.AddScoped<IFriendRepository, FriendEFRepository>();
         }
 
         private void ConfigureDatabase(IServiceCollection services)

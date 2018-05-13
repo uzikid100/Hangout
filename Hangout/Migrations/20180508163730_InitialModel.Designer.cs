@@ -11,8 +11,8 @@ using System;
 namespace Hangout.Migrations
 {
     [DbContext(typeof(HangoutContext))]
-    [Migration("20180430213748_DB rebuild")]
-    partial class DBrebuild
+    [Migration("20180508163730_InitialModel")]
+    partial class InitialModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -52,12 +52,14 @@ namespace Hangout.Migrations
 
             modelBuilder.Entity("Hangout.Models.Friend", b =>
                 {
-                    b.Property<int>("FriendId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("UserId");
 
-                    b.HasKey("FriendId");
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Friends");
                 });
@@ -99,6 +101,14 @@ namespace Hangout.Migrations
                 {
                     b.HasOne("Hangout.Models.User", "User")
                         .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Hangout.Models.Friend", b =>
+                {
+                    b.HasOne("Hangout.Models.User", "User")
+                        .WithMany("Friends")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

@@ -6,6 +6,7 @@ import { of } from 'rxjs/Observable/of';
 import { User } from '../models/user-model';
 import 'rxjs';
 import { MockUser } from "../mocks/mock-user";
+import { Friend } from "../models/friend-model";
 
 @Injectable()
 export class UserProvider {
@@ -58,4 +59,11 @@ export class UserProvider {
         this.http.put(this.controllerUrl, users);
     }
 
+
+    addFriend(userId: number, friendId: number): void {
+        let url = this.configService.fullApiUrl + 'Friends/';
+        console.log("addFriendService triggerd");
+        this.http.post(url, { id: userId, user: null, friendId: friendId }).subscribe(result =>
+            console.log(result));
+    }
 }

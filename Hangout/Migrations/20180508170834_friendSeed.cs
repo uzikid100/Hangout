@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Hangout.Migrations
 {
-    public partial class Userinserts : Migration
+    public partial class friendSeed : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

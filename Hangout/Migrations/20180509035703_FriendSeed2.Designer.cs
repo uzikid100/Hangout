@@ -7,12 +7,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
+using Hangout.Models;
 
 namespace Hangout.Migrations
 {
     [DbContext(typeof(HangoutContext))]
-    [Migration("20180428193633_Database connectionString fix")]
-    partial class DatabaseconnectionStringfix
+    [Migration("20180509035703_FriendSeed2")]
+    partial class FriendSeed2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,17 +27,17 @@ namespace Hangout.Migrations
                     b.Property<int>("EventId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("Attending");
+                    b.Property<int?>("Attending");
 
-                    b.Property<int>("Capacity");
+                    b.Property<int?>("Capacity");
 
                     b.Property<string>("Desription");
 
                     b.Property<string>("Location");
 
-                    b.Property<double>("Price");
+                    b.Property<double?>("Price");
 
-                    b.Property<DateTime>("ScheduledTime");
+                    b.Property<DateTime?>("ScheduledTime");
 
                     b.Property<string>("Title")
                         .IsRequired();
@@ -52,12 +53,14 @@ namespace Hangout.Migrations
 
             modelBuilder.Entity("Hangout.Models.Friend", b =>
                 {
-                    b.Property<int>("FriendId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("UserId");
 
-                    b.HasKey("FriendId");
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Friends");
                 });
@@ -65,20 +68,33 @@ namespace Hangout.Migrations
             modelBuilder.Entity("Hangout.Models.User", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Avatar")
+                        .HasColumnType("VARCHAR(255)");
 
                     b.Property<string>("Description");
 
+                    b.Property<string>("Email");
+
                     b.Property<string>("FirstName");
+
+                    b.Property<bool?>("IsAuthenticated");
 
                     b.Property<string>("LastName");
 
-                    b.Property<int>("Repuation");
+                    b.Property<string>("Password");
+
+                    b.Property<int?>("Repuation");
 
                     b.Property<string>("Username")
                         .IsRequired();
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Username")
+                        .IsUnique();
 
                     b.ToTable("Users");
                 });
@@ -87,6 +103,14 @@ namespace Hangout.Migrations
                 {
                     b.HasOne("Hangout.Models.User", "User")
                         .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Hangout.Models.Friend", b =>
+                {
+                    b.HasOne("Hangout.Models.User", "User")
+                        .WithMany("Friends")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

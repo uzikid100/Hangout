@@ -10,6 +10,7 @@ namespace Hangout.Repository.Interfaces
     public interface IUserRepository: IRepository<User>
     {
         Task<User> GetUserAsync(int id);
+        Task<User> GetUserWithFriends(int id);
         Task<User> AddUserAsync(User user);
         List<User> GetUsers();
         User GetLastLoggedInUser();

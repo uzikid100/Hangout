@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -17,7 +18,12 @@ namespace Hangout.Models
         public string Description { get; set; }
         public string Email { get; set; }
         public int? Repuation { get; set; }
-        public byte[] Avatar { get; set; }
+
+        [Column(TypeName = "VARCHAR(255)")]
+        public string Avatar { get; set; }
         public bool? IsAuthenticated { get; set; }
+
+
+        public ICollection<Friend> Friends { get; set; }
     }
 }

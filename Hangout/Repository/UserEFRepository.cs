@@ -6,6 +6,7 @@ using Hangout.Database;
 using Hangout.Models;
 using Hangout.Models.Infrastructure;
 using Hangout.Repository.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Hangout.Repository
 {
@@ -21,8 +22,15 @@ namespace Hangout.Repository
         public IUnitOfWork UnitOfWork => _context;
 
         public async Task<User> GetUserAsync(int id)
-        { 
+        {
             return await _context.Users.FindAsync(id);
+        }
+
+        public async Task<User> GetUserWithFriends(int id)
+        {
+            return await _context.Users.Where<User>(user => user.Id == id)
+                .Include(user => user.Friends)
+                .FirstOrDefaultAsync();
         }
 
         public async Task<User> AddUserAsync(User user)
@@ -53,6 +61,14 @@ namespace Hangout.Repository
             return _context.Users.SingleOrDefault<User>(user => user.Username == username);
 
         }
+
+        public ICollection<Friend> GetFriends(int userId)
+        {
+            var result = _context.Users.Where(user => user.Id == userId)
+                .Include(u => u.Friends)
+                .FirstOrDefault();
+            return result.Friends;
+        } 
     }
 
 }

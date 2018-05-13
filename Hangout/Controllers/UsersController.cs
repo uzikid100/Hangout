@@ -14,17 +14,13 @@ namespace Hangout.Controllers
     public class UsersController : Controller
     {
         private IUserRequestHandler _userRequestHandler;
+        private IFriendRequestHandler _friendRequestHandler;
 
-        public UsersController(IUserRequestHandler userRequestHandler)
+        public UsersController(IUserRequestHandler userRequestHandler, IFriendRequestHandler friendRequest)
         {
             _userRequestHandler = userRequestHandler;
+            _friendRequestHandler = friendRequest;
         }
-
-        //[HttpGet("{id}")]
-        //public async Task<User> GetUser(int id)
-        //{
-        //    return await _userRequestHandler.GetUserAsync(id);
-        //}
 
         [HttpPost]
         public async Task<User> AddNewUser([FromBody] User user)
@@ -45,5 +41,10 @@ namespace Hangout.Controllers
             return _userRequestHandler.GetUserByUsername(username);
         }
 
+        [HttpGet("{userId}/friends")]
+        public async Task<List<User>> GetFriends(int userId)
+        {
+            return await _friendRequestHandler.GetUserFriendsAsync(userId);
+        }
     }
 }

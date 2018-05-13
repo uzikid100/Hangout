@@ -11,8 +11,8 @@ using System;
 namespace Hangout.Migrations
 {
     [DbContext(typeof(HangoutContext))]
-    [Migration("20180429171422_Updated User table")]
-    partial class UpdatedUsertable
+    [Migration("20180508163931_DbSeed")]
+    partial class DbSeed
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,17 +26,17 @@ namespace Hangout.Migrations
                     b.Property<int>("EventId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("Attending");
+                    b.Property<int?>("Attending");
 
-                    b.Property<int>("Capacity");
+                    b.Property<int?>("Capacity");
 
                     b.Property<string>("Desription");
 
                     b.Property<string>("Location");
 
-                    b.Property<double>("Price");
+                    b.Property<double?>("Price");
 
-                    b.Property<DateTime>("ScheduledTime");
+                    b.Property<DateTime?>("ScheduledTime");
 
                     b.Property<string>("Title")
                         .IsRequired();
@@ -52,12 +52,14 @@ namespace Hangout.Migrations
 
             modelBuilder.Entity("Hangout.Models.Friend", b =>
                 {
-                    b.Property<int>("FriendId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("UserId");
 
-                    b.HasKey("FriendId");
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Friends");
                 });
@@ -76,13 +78,13 @@ namespace Hangout.Migrations
 
                     b.Property<string>("FirstName");
 
-                    b.Property<bool>("IsAuthenticated");
+                    b.Property<bool?>("IsAuthenticated");
 
                     b.Property<string>("LastName");
 
                     b.Property<string>("Password");
 
-                    b.Property<int>("Repuation");
+                    b.Property<int?>("Repuation");
 
                     b.Property<string>("Username")
                         .IsRequired();
@@ -99,6 +101,14 @@ namespace Hangout.Migrations
                 {
                     b.HasOne("Hangout.Models.User", "User")
                         .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Hangout.Models.Friend", b =>
+                {
+                    b.HasOne("Hangout.Models.User", "User")
+                        .WithMany("Friends")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

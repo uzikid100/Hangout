@@ -4,10 +4,11 @@ using System.Collections.Generic;
 
 namespace Hangout.Migrations
 {
-    public partial class AvatarTablecreated : Migration
+    public partial class DbSeed : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.Sql("Insert Into Users(Username, Password, FirstName, LastName, Email) Values ('Uzikid100', 'myAPpDev', 'Uzezi', 'Ogodo', 'Uzeziogodo@yahoo.com');");
 
         }
 

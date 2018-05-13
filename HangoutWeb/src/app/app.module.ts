@@ -18,6 +18,7 @@ import { SignupPage } from '../pages/signup/signup';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FriendsPage } from '../pages/friends/friends';
+import { FriendProvider } from './core/services/friend.provider';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { FriendsPage } from '../pages/friends/friends';
     ConfigProvider,
     UserProvider,
     AuthProvider,
+    FriendProvider,
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
